@@ -30,6 +30,10 @@ Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
 
+" Default settings
+
+source $VIMRUNTIME/defaults.vim
+
 " Tabs setting
 
 set tabstop=2
