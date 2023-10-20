@@ -18,6 +18,7 @@ Plugin 'pangloss/vim-javascript'
 
 Plugin 'udalov/kotlin-vim'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
 " Plugin 'jiangmiao/auto-pairs'
 " Plugin 'mxw/vim-jsx'
 " Plugin 'jelera/vim-javascript-syntax'
