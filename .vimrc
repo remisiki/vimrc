@@ -19,6 +19,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'udalov/kotlin-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 " Plugin 'jiangmiao/auto-pairs'
 " Plugin 'mxw/vim-jsx'
 " Plugin 'jelera/vim-javascript-syntax'
@@ -27,6 +28,7 @@ Plugin 'tpope/vim-fugitive'
 "     let g:UltiSnipsExpandTrigger = '<tab>'
 "     let g:UltiSnipsJumpForwardTrigger = '<tab>'
 "     let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+Plugin 'mkitt/tabline.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -57,6 +59,7 @@ ino <C-Y> <Esc><C-R>i
 nn <C-Y> <C-R>
 nn U <C-R>
 " ino <Tab> <C-N>
+ino <Esc>K <Esc>ddi
 ino <Esc>D <Esc>yypi
 vn <Esc>D yp
 nn <Esc>D yyp
@@ -78,9 +81,11 @@ inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
-" inoremap { {}<left>
+inoremap { {}<left>
 " inoremap {<CR> {<CR>}<ESC>O
 " inoremap {;<CR> {<CR>};<ESC>O
+nnoremap <expr> ' "'" . nr2char(getchar()) . 'zz'
+nnoremap <expr> ` "`" . nr2char(getchar()) . 'zz'
 set timeout timeoutlen=100
 
 " Misc
