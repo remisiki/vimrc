@@ -25,9 +25,10 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 " Plugin 'jelera/vim-javascript-syntax'
 " Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'sirver/ultisnips'
-    let g:UltiSnipsExpandTrigger = '<tab>'
-    let g:UltiSnipsJumpForwardTrigger = '<tab>'
-    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+	let g:UltiSnipsExpandTrigger="<tab>"
+	let g:UltiSnipsJumpForwardTrigger="<tab>"
+	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+	let g:UltiSnipsEditSplit="horizontal"
 Plugin 'honza/vim-snippets'
 Plugin 'mkitt/tabline.vim'
 
