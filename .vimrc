@@ -24,10 +24,11 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 " Plugin 'mxw/vim-jsx'
 " Plugin 'jelera/vim-javascript-syntax'
 " Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-" Plugin 'sirver/ultisnips'
-"     let g:UltiSnipsExpandTrigger = '<tab>'
-"     let g:UltiSnipsJumpForwardTrigger = '<tab>'
-"     let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+Plugin 'sirver/ultisnips'
+    let g:UltiSnipsExpandTrigger = '<tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+Plugin 'honza/vim-snippets'
 Plugin 'mkitt/tabline.vim'
 
 call vundle#end()
@@ -130,3 +131,4 @@ if &diff
 	map [ [c
 	map ] ]c
 endif
+
