@@ -31,6 +31,12 @@ Plugin 'sirver/ultisnips'
 	let g:UltiSnipsEditSplit="horizontal"
 Plugin 'honza/vim-snippets'
 Plugin 'mkitt/tabline.vim'
+Plugin 'ycm-core/YouCompleteMe'
+	let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+	let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+	let g:SuperTabDefaultCompletionType = '<C-n>'
+	let g:ycm_confirm_extra_conf = 0
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
@@ -51,50 +57,60 @@ syntax enable
 
 " Keymappings
 
+" Moving around
 ino <C-J> <Down>
 ino <C-K> <Up>
 ino <C-H> <Left>
 ino <C-L> <Right>
+ino <C-B> <C-W>
+ino <C-W> <Esc><Right>cw
+ino <Esc>b <C-Left>
+ino <Esc>w <C-Right>
+ino <Esc>6 <Esc>^i
+ino <Esc>4 <Esc>$a
+nn <expr> ' "'" . nr2char(getchar()) . 'zz'
+nn <expr> ` "`" . nr2char(getchar()) . 'zz'
+nn E gT
+nn R gt
+
+" Undo and redo
 ino <C-Z> <Esc>ui
 nn <C-Z> u
 ino <C-Y> <Esc><C-R>i
 nn <C-Y> <C-R>
 nn U <C-R>
-" ino <Tab> <C-N>
-ino <Esc>K <Esc>ddi
-ino <Esc>D <Esc>yypi
-vn <Esc>D yp
-nn <Esc>D yyp
-ino <C-C> <Esc>zza
-ino <C-B> <C-W>
-ino <C-W> <Esc>lcw
+
+" Copy and clear
+nn K dd
+nn D yyp
+vn D yp
+vn <C-C> :w !xclip -selection clipboard <CR><CR>
+ino <C-C> <Esc><Right>C
+
+" Commentary
 ino <Esc>/ <Esc><Plug>CommentaryLinei
 vn <Esc>/ <Plug>Commentary
 nn <Esc>/ <Plug>CommentaryLine
-ino <C-O> <Esc>o
-ino <C-P> <Esc>O
-vn <C-C> :w !xclip -selection clipboard <CR><CR>
-ino <C-E> <Esc>lC
-ino <Esc>b <C-Left>
-ino <Esc>w <C-Right>
-ino <Esc>6 <Esc>^i
-ino <Esc>4 <Esc>$a
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-" inoremap {<CR> {<CR>}<ESC>O
-" inoremap {;<CR> {<CR>};<ESC>O
-nnoremap <expr> ' "'" . nr2char(getchar()) . 'zz'
-nnoremap <expr> ` "`" . nr2char(getchar()) . 'zz'
+
+" Auto completion
+ino " ""<left>
+ino ' ''<left>
+ino ( ()<left>
+ino [ []<left>
+ino { {}<left>
+nn <F12> <plug>(YCMHover)
+ino <F12> <Esc><plug>(YCMHover)a
 set timeout timeoutlen=100
+
+" Colors
+hi ColorColumn  ctermbg=grey
+hi Pmenu        ctermfg=white ctermbg=black gui=NONE guifg=white guibg=black
+hi PmenuSel     ctermfg=black ctermbg=lightmagenta gui=bold guifg=black guibg=lightmagenta
 
 " Misc
 
 set foldmethod=syntax
 set foldlevel=99
-highlight ColorColumn ctermbg=grey
 
 set hlsearch
 set incsearch
