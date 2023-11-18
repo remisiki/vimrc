@@ -71,7 +71,17 @@ ino <Esc>4 <Esc>$a
 nn <expr> ' "'" . nr2char(getchar()) . 'zz'
 nn <expr> ` "`" . nr2char(getchar()) . 'zz'
 nn E gT
+nn + :tabm+1<CR>
 nn R gt
+nn - :tabm-1<CR>
+ino <C-S-Up> <Esc>:m-2<CR>a
+nn <C-S-Up> :m-2<CR>
+vn <C-S-Up> :m-2<CR>gv
+ino <C-S-Down> <Esc>:m+1<CR>a
+nn <C-S-Down> :m+1<CR>
+vn <C-S-Down> :m+1<CR>gv
+vn < <gv
+vn > >gv
 
 " Undo and redo
 ino <C-Z> <Esc>ui
@@ -83,13 +93,13 @@ nn U <C-R>
 " Copy and clear
 nn K dd
 nn D yyp
-vn D yp
+vn D ypgv
 vn <C-C> :w !xclip -selection clipboard <CR><CR>
 ino <C-C> <Esc><Right>C
 
 " Commentary
 ino <Esc>/ <Esc><Plug>CommentaryLinei
-vn <Esc>/ <Plug>Commentary
+vn <Esc>/ <Plug>Commentarygv
 nn <Esc>/ <Plug>CommentaryLine
 
 " Auto completion
